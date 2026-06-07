@@ -1,0 +1,34 @@
+{
+  "name": "web-voice-assistant",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "concurrently -n server,ui -c blue,green \"npm run dev:server\" \"npm run dev\"",
+    "dev": "vite",
+    "dev:server": "tsx watch server/app.ts",
+    "build": "vite build",
+    "build:server": "tsc -p server/tsconfig.json",
+    "preview": "vite preview",
+    "test:server": "node --import tsx --test server/lib/transcript.test.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22.13.0",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "@huggingface/hub": "^2.6.1",
+    "@huggingface/inference": "^4.13.15",
+    "express": "^5.1.0",
+    "multer": "^2.0.0",
+    "socket.io-client": "^4.8.1",
+    "yaml": "^2.7.0"
+  }
+}

@@ -1,0 +1,6 @@
+- Live recording to transcript using web speech recognition api
+- Upload file
+- Transcribe file
+- Edit transcription
+- Improve transcription using LLM
+    - Mark the original words vs added/changed by LLM
