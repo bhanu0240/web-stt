@@ -29,3 +29,7 @@ Server reads `.env` from the project root. See `.env.example` for all options. M
 | `HF_EMBED_MODEL` | Embedding model for library search |
 | `LIBRARY_ROOT` | Where assets and transcripts are stored |
 | `API_PORT` | API port (default: 8787) |
+
+## License
+
+[GNU General Public License v3.0](LICENSE.md) (GPL-3.0).
