@@ -10,6 +10,7 @@ UI for speech to text transcription
 
 ## Quickstart
 
-- Clone the repo - `https://github.com/gitcommitshow/web-stt`
-- Install dependencies `npm install`
-- Start the project `npm start` (it will build the frontend assets and start the express server)
+1. Clone the repo - `https://github.com/gitcommitshow/web-stt`
+2. Install dependencies `npm install`
+3. Copy and set environment variables (HF_TOKEN for local models) - `cp .env.example .env`
+4. Start the project `npm start` (it will build the frontend assets and start the express server)
