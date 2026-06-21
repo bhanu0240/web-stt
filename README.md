@@ -14,7 +14,7 @@ UI for speech-to-text transcription.
 2. `cp .env.example .env` - set `HF_TOKEN` ([HF token](https://huggingface.co/settings/tokens))
 3. `npm start` → http://localhost:5173 (UI proxies `/api` to Express on 8787)
 
-**Requires:** Node ≥ 20, [ffmpeg](https://ffmpeg.org/) on PATH. For hub-only/local models, also set `HF_ASR_LOCAL_PYTHON` and install deps listed in `.env.example`.
+**Requires:** Node ≥ 20, [ffmpeg](https://ffmpeg.org/) on PATH.
 
 ## Configuration
 
@@ -24,11 +24,17 @@ Server reads `.env` from the project root. See `.env.example` for all options. M
 |----------|---------|
 | `HF_TOKEN` | Required for hosted ASR and embeddings |
 | `HF_ASR_MODEL` | Default model (default: `openai/whisper-large-v3`) |
-| `HF_ASR_RUNTIME` | `hosted` or `local` |
-| `HF_ASR_LOCAL_PYTHON` | Python for local/hub-only ASR |
+| `HF_ASR_RUNTIME` | `hosted` (default) or `local` |
+| `HF_ASR_LOCAL_PYTHON` | Python for local ASR (see guide below) |
 | `HF_EMBED_MODEL` | Embedding model for library search |
 | `LIBRARY_ROOT` | Where assets and transcripts are stored |
 | `API_PORT` | API port (default: 8787) |
+
+## Local ASR (no HF Inference API)
+
+To transcribe on your machine instead of HF serverless inference, install Python deps, set `HF_ASR_LOCAL_PYTHON`, and optionally `HF_ASR_RUNTIME=local` to skip hosted ASR entirely. Hub-only models (no serverless route) use local Python automatically when that variable is set.
+
+**Full setup:** [docs/local-asr.md](docs/local-asr.md) — Python install, `.env` examples, smoke-test command, and runtime behavior.
 
 ## License
 
