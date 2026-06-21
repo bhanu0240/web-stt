@@ -15,4 +15,4 @@ export const LOCAL_ASR_ADMIN_GUIDE = `Hub-only models (no serverless inference r
 5) Smoke-test:
    HF_ASR_LOCAL_PYTHON python3 server/scripts/hf_local_asr.py --model YOUR_ORG/YOUR_MODEL --audio /path/to/16k_mono.wav
 
-With this set, the server will run that script automatically for Hub-only models (first run may download multi‑GB weights).`;
+With this set, the server will run that script automatically for Hub-only models (first run may download multi-GB weights).`;
