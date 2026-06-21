@@ -48,10 +48,12 @@ For **local ASR** (run models via Python Transformers on your machine, not HF In
 | `server/` | Express API, Hugging Face integration, transcript library |
 | `server/lib/` | Shared server modules (transcripts, ASR, search, jobs) |
 | `server/scripts/` | Python helpers (e.g. local ASR) |
-| `docs/` | Requirements and UI design notes |
+| `docs/` | Architecture, requirements, local ASR, and UI design notes |
 | `data/library/` | Runtime transcript and asset storage (gitignored) |
 
 The server reads `.env` from the project root. Do not commit `.env` or tokens.
+
+For how components fit together and why key choices were made, see [docs/architecture.md](docs/architecture.md).
 
 ## Development workflow
 

@@ -36,6 +36,10 @@ To transcribe on your machine instead of HF serverless inference, install Python
 
 **Full setup:** [docs/local-asr.md](docs/local-asr.md) — Python install, `.env` examples, smoke-test command, and runtime behavior.
 
+## Architecture
+
+System layout, data model, ASR routing, and design decisions: [docs/architecture.md](docs/architecture.md).
+
 ## License
 
 [GNU General Public License v3.0](LICENSE.md) (GPL-3.0).
