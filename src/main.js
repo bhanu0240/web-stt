@@ -885,9 +885,7 @@ async function renderAsset(id) {
           <div class="segment-time">${formatTime(seg.startMs)}</div>
           <div class="segment-fields">
             ${spk ? `<span class="pill">${spk}</span>` : ''}
-            <textarea type="text" class="input seg-text" data-idx="${idx}"  rows="5">
-              ${escapeHtml(seg.text || '')}
-            </textarea>
+            <input type="text" class="input seg-text" data-idx="${idx}" value="${escapeHtml(seg.text || '')}" />
           </div>
         </div>`;
       })
