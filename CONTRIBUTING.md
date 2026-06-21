@@ -8,10 +8,11 @@ Thanks for your interest in contributing. This guide covers local setup, project
 - **ffmpeg** on your PATH (audio transcoding for ASR)
 - A **Hugging Face token** with access to the models you plan to use ([create one](https://huggingface.co/settings/tokens))
 
-For local/hub-only ASR (optional), you also need:
+For **local ASR** (run models via Python Transformers on your machine, not HF Inference API), see [docs/local-asr.md](docs/local-asr.md). In short:
 
-- Python 3 with the dependencies listed in `.env.example`
+- Python 3.10+ with `transformers`, `torch`, `torchaudio`, `soundfile`, `accelerate`
 - `HF_ASR_LOCAL_PYTHON` pointing at that interpreter
+- Optional `HF_ASR_RUNTIME=local` to always use local inference
 
 ## Local setup
 
@@ -28,7 +29,7 @@ For local/hub-only ASR (optional), you also need:
    cp .env.example .env
    ```
 
-   Set at least `HF_TOKEN`. See `.env.example` for ASR runtime, embedding model, library path, and other options.
+   Set at least `HF_TOKEN`. See `.env.example` for ASR runtime, embedding model, library path, and other options. For local (non–Inference API) transcription, follow [docs/local-asr.md](docs/local-asr.md).
 
 4. Start the dev stack (Vite UI + Express API):
 
@@ -47,10 +48,12 @@ For local/hub-only ASR (optional), you also need:
 | `server/` | Express API, Hugging Face integration, transcript library |
 | `server/lib/` | Shared server modules (transcripts, ASR, search, jobs) |
 | `server/scripts/` | Python helpers (e.g. local ASR) |
-| `docs/` | Requirements and UI design notes |
+| `docs/` | Architecture, requirements, local ASR, and UI design notes |
 | `data/library/` | Runtime transcript and asset storage (gitignored) |
 
 The server reads `.env` from the project root. Do not commit `.env` or tokens.
+
+For how components fit together and why key choices were made, see [docs/architecture.md](docs/architecture.md).
 
 ## Development workflow
 
