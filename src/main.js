@@ -885,8 +885,10 @@ async function renderAsset(id) {
           <div class="segment-time">${formatTime(seg.startMs)}</div>
           <div class="segment-fields">
             ${spk ? `<span class="pill">${spk}</span>` : ''}
-            <input type="text" class="input seg-text" data-idx="${idx}" value="${escapeHtml(seg.text || '')}" />
-          </div>
+            <div contenteditable="true" class="input seg-text" data-idx="${idx}">
+             ${escapeHtml(seg.text || '')} 
+            </div>
+            </div>
         </div>`;
       })
       .join('');
@@ -995,7 +997,7 @@ async function renderAsset(id) {
         startMs: seg.startMs,
         endMs: seg.endMs,
         speaker: seg.speaker,
-        text: inp ? inp.value : seg.text,
+        text: inp ? inp.innerText.trim() : seg.text,
         raw: seg.raw,
       };
     });
